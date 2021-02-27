@@ -12,38 +12,38 @@ const nameInput = document.getElementById('name'), // ввод имени
     prevBtn = document.getElementById('prev'), //prev
     nextBtn = document.getElementById('next'); //next
 
-    let recordsData;
+let recordsData;
 // получаю данные json с сервера
-// let requestURL = 'http://127.0.0.1:5500/recordsData.json',  // ! вставить ссылку с сервера
-//     postURL = 'http://127.0.0.1:5500/json.php';
+let requestURL = 'recordsData.json'; 
+    // postURL = 'http://127.0.0.1:5500/json.php';
 
-//     function sendRequest(method, url, body = null){
-//         const xhr = new XMLHttpRequest();
+    function sendRequest(method, url, body = null){
+        const xhr = new XMLHttpRequest();
 
-//         xhr.open(method, url);
-//         xhr.responseType = 'json';
-//         xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.open(method, url);
+        xhr.responseType = 'json';
+        xhr.setRequestHeader('Content-Type', 'application/json');
 
-//         xhr.onload = () => {
+        xhr.onload = () => {
 
-//             if (xhr.readyState === 4 && xhr.status === 200) {
-//             recordsData = xhr.response; // ! работа с файлом только внутри этой функции
-//             // console.log('сегодня ', findDate(recordsData, today))
+            if (xhr.readyState === 4 && xhr.status === 200) {
+            recordsData = xhr.response; // ! работа с файлом только внутри этой функции
+            // console.log('сегодня ', findDate(recordsData, today))
 
-//             console.log(recordsData)
+            console.log(recordsData)
 
-//             // индекс в массиве с записями на сегодняшний день, нужен для доступа к дате и переключению дат
-//             let index = findDateIndex(recordsData, today); 
-//             changeRecords(recordsData, index, renderRecords, format, nextDates)
-//             }
+            // индекс в массиве с записями на сегодняшний день, нужен для доступа к дате и переключению дат
+            let index = findDateIndex(recordsData, today); 
+            changeRecords(recordsData, index, renderRecords, format, nextDates)
+            }
 
-//         }
+        }
 
-//         xhr.send(JSON.stringify(body));
-//     };
+        xhr.send(JSON.stringify(body));
+    };
 
-//     // получаю данные
-//     sendRequest('GET', requestURL);
+    // получаю данные
+    sendRequest('GET', requestURL);
 
 
     
@@ -77,10 +77,6 @@ const nameInput = document.getElementById('name'), // ввод имени
 // * * * * * * * * начало: функции для работы с информацией * * * * * //
 // дата сегодня (формат гггг-мм-дд)
 let today = format(new Date());
-
-let index = findDateIndex(recordsData, today); 
-changeRecords(recordsData, index, renderRecords, format, nextDates)
-
 
 // форматирование даты
 function format(date) {
@@ -122,7 +118,8 @@ function changeRecords(arr, index, renderCallback, formatCallback, nextDayCallba
 
     nextBtn.addEventListener('click', () =>{
 
-        if (counter >= 7 && counter < arr.length-1 || counter > arr.length-1 ) {
+        // arr.length - (index+ counter) - сколько элементов осталось до конца массива
+        if (counter >= 7 && counter < (arr.length - (index+ counter)) || counter > (arr.length - (index+ counter))) {
             nextBtn.disabled = true;
         } else {
             counter++;
@@ -182,6 +179,37 @@ function checkIfBusy(arr, date, time){
     }
 }
 // * * * * * * * * * * * * * * * до этого момента все работает * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    let userName = nameInput.value,
+        userEmail = emailInput.value,
+        userDate = dateInput.value,
+        userTime = timeSelect.value;
+
+        let user = JSON.stringify({userName: userName, userEmail: userEmail, userDate: userDate, userTime: userTime});
+
+        let request = new XMLHttpRequest();
+        // посылаем запрос на адрес "/user"
+            request.open("POST", "/user", true);   
+            request.setRequestHeader("Content-Type", "application/json");
+            request.onload = () => {
+                // получаем и парсим ответ сервера
+                let receivedUser = JSON.parse(request.response);
+                console.log(receivedUser.userName, "-", receivedUser.userEmail, userDate, userTime);   // смотрим ответ сервера
+            };
+            request.send(user);
+});
+
+
+
+
+
+
+
+
 
 
 

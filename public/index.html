@@ -15,22 +15,22 @@
 </head>
 <body>
     <div class="d-flex flex-wrap">
-        <form class="p-5">
+        <form class="p-5" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="date">date</label>
-                <input type="date" class="form-control" id="date">
+                <input type="date" class="form-control" id="date" name="date">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="time">time</label>
-                <select class="form-select" id="time">
+                <select class="form-select" id="time" name="time">
                     <option value ="" selected>Open this select menu</option>
                     <option value="8:00-9:00">8:00-8:30</option>
                     <option value="9:00-10:00">8:30-9:00</option>
@@ -80,28 +80,7 @@
         </div>
     </div>
 
-    <template id="template">
-        <div class="mx-2 date-block temp-date d-flex flex-wrap">
-            <h6 class="p-3 my-3 w-100 border border-success temp-title"></h6>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-            <div class="block p-5 m-1 w-25 border temp-time"></div>
-        </div>
-    </template>
 
-    <script src="scripts/script.js" ></script>
+    <script src='script.js'></script>
 </body>
 </html>
