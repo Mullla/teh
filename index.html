@@ -32,9 +32,9 @@
                 <label class="form-label" for="time">time</label>
                 <select class="form-select" id="time">
                     <option value ="" selected>Open this select menu</option>
-                    <option value="8:00-9:00">8:00-9:00</option>
-                    <option value="9:00-10:00">9:00-10:00</option>
-                    <option value="10:00-11:00">10:00-11:00</option>
+                    <option value="8:00-9:00">8:00-8:30</option>
+                    <option value="9:00-10:00">8:30-9:00</option>
+                    <option value="10:00-11:00">9:00-9:30</option>
                     <option value="11:00-12:00">11:00-12:00</option>
                     <option value="12:00-13:00">12:00-13:00</option>
                     <option value="13:00-14:00">13:00-14:00</option>
@@ -55,38 +55,29 @@
 
         <div class="shedule w-75 mt-3">
             <div class="row">
-                <div class="col-2 text-center"><button class="btn btn-light" type="button" id="prev" data-label="prev">-1</button></div>
-                <div class="col border border-success text-center"><h6 class="my-2 text-center">21-02-2021</h6></div>
-                <div class="col-2 text-center"><button class="btn btn-light" type="button" id="next" data-label="next">+1</button></div>
+                <div class="col-2 text-center"><button class="btn btn-dark" type="button" id="prev" data-label="prev">-1</button></div>
+                <div class="col border border-success text-center"><h6 class="my-2 text-center"></h6></div>
+                <div class="col-2 text-center"><button class="btn btn-dark" type="button" id="next" data-label="next">+1</button></div>
             </div>
-            <div class="row">
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
-                <div class="col-4 block border border-info w-25"></div>
+            <div class="row my-2">
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
+                <div class="col-4 block border border-info w-25 text-center py-2" style="height: 50px;"></div>
             </div>
         </div>
-
-        <!-- <div class="row prev">
-            <button class="btn btn-ligh my-5" type="button" id="prev">-1</button>
-        </div>
-        <div class="shedule d-flex flex-wrap w-50">
-        </div>
-        <div class="row next">
-            <button class="btn btn-ligh my-5" type="button" id="next" align-self="center">+1</button>
-        </div> -->
     </div>
 
     <template id="template">
@@ -111,6 +102,6 @@
         </div>
     </template>
 
-    <script src="script.js"></script>
+    <script src="scripts/script.js" ></script>
 </body>
 </html>
